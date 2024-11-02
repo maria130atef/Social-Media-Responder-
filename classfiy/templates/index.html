@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+            justify-content: center; /* Center content vertically */
+            height: 100vh; /* Full viewport height */
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px; /* Limit width of form */
+            display: flex; /* Enable flexbox */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center items horizontally */
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            text-align: center; /* Center the label */
+        }
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            text-align: center; /* Center the text in the input field */
+            font-size: 18px; /* Increase font size */
+
+        }
+        button {
+            padding: 15px 30px; /* Increase padding for a larger button */
+            background-color: #1986cf;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Space above the button */
+            font-size: 16px; /* Increase font size */
+        }
+        button:hover {
+            background-color: #0e7ea1; /* Darker shade on hover */
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .result {
+            font-size: 48px; /* Make emojis larger */
+            margin-top: 20px;
+            text-align: center; /* Center the result text */
+        }
+    </style>
+</head>
+<body>
+    <h1>Classify the Sentiment of the Review</h1>
+
+    <!-- Form to submit text for classification -->
+    <form method="POST" action="/">
+        <label for="sentence">Enter a sentence:</label>
+        <input type="text" id="sentence" name="sentence" value="{{ request.form['sentence'] }}" required>
+        <button type="submit">Classify</button>
+    </form>
+
+    <!-- Display the result if available -->
+    {% if result %}
+        <h2>Classification Result:</h2>
+        <div class="result">
+            {{ result }}
+        </div>
+    {% endif %}
+</body>
+</html>

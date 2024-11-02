@@ -1,0 +1,11 @@
+
+Flask
+selenium
+webdriver-manager
+beautifulsoup4
+langchain
+sentence-transformers
+langchain-community
+langchain-groq
+langchain-core
+langdetect
